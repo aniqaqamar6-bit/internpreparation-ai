@@ -1,0 +1,6 @@
+{
+  "name": "InternGuide-AI",
+  "description": "AI-Powered Internship Preparation Assistant for Computer Science Students",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
