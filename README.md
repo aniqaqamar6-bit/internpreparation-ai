@@ -69,7 +69,7 @@ Every semester, thousands of Computer Science students apply to hundreds of tech
 
 ---
 
-## 📸 Screenshots of the App in Action
+##  📸 Screenshots of the App in Action
 
 ### 1. Dashboard
 ![Dashboard Preview](./src/assets/images/dashboard_preview_1785141061507.png)
@@ -79,7 +79,6 @@ Every semester, thousands of Computer Science students apply to hundreds of tech
 
 ### 3. Skill Gap Detector
 ![Skill Gap Detector Preview](./src/assets/images/skill_gap_preview_1785141094972.png)
-
 ---
 
 ## 🤖 AI Feature & System Prompts
