@@ -4,7 +4,6 @@ import multer from 'multer';
 import zlib from 'zlib';
 import dotenv from 'dotenv';
 import { GoogleGenAI, Type } from '@google/genai';
-import { createServer as createViteServer } from 'vite';
 
 dotenv.config();
 
@@ -700,29 +699,11 @@ app.use((err: any, req: Request, res: Response, next: any) => {
 });
 
 // Vite middleware & production static serving
-async function startServer() {
-  if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
-  }
-
+// Only start server locally, not on Vercel serverless
+if (!process.env.VERCEL) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`InternGuide-AI Server running on http://0.0.0.0:${PORT}`);
   });
-}
-
-// Only start the standalone HTTP listener when not running in Vercel's serverless environment
-if (!process.env.VERCEL) {
-  startServer();
 }
 
 export default app;
