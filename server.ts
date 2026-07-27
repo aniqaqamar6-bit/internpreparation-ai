@@ -2,9 +2,6 @@ import express, { Request, Response } from 'express';
 import path from 'path';
 import multer from 'multer';
 import zlib from 'zlib';
-import * as pdfParseModule from 'pdf-parse';
-
-let pdfParse: any = (pdfParseModule as any).default || pdfParseModule;
 import dotenv from 'dotenv';
 import { GoogleGenAI, Type } from '@google/genai';
 import { createServer as createViteServer } from 'vite';
@@ -207,10 +204,23 @@ function fallbackExtractPdfText(buffer: Buffer): string {
   }
 }
 
+// Lazy loader for pdf-parse to avoid top-level module load side-effects in serverless environments
+async function getPdfParse(): Promise<any> {
+  try {
+    const pdfParseModule = await import('pdf-parse');
+    return (pdfParseModule as any).default || pdfParseModule;
+  } catch (err) {
+    console.warn('pdf-parse dynamic import warning:', err);
+    return null;
+  }
+}
+
 // Helper function to extract text from PDF buffer
 async function extractTextFromPdf(buffer: Buffer): Promise<{ text: string; method: string }> {
   let extractedText = '';
   let method = 'none';
+
+  const pdfParse = await getPdfParse();
 
   // 1. Primary pdf-parse
   try {
