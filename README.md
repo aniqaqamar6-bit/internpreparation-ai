@@ -72,13 +72,13 @@ Every semester, thousands of Computer Science students apply to hundreds of tech
 ## 📸 Screenshots of the App in Action
 
 ### 1. Dashboard
-![Dashboard Preview](./src/assets/images/dashboard_preview_1785141061507.jpg)
+![Dashboard Preview](./src/assets/images/dashboard_preview_1785141061507.png)
 
 ### 2. Resume Analyzer
-![Resume Analyzer Preview](./src/assets/images/resume_analyzer_preview_1785141078656.jpg)
+![Resume Analyzer Preview](./src/assets/images/resume_analyzer_preview_1785141078656.png)
 
 ### 3. Skill Gap Detector
-![Skill Gap Detector Preview](./src/assets/images/skill_gap_preview_1785141094972.jpg)
+![Skill Gap Detector Preview](./src/assets/images/skill_gap_preview_1785141094972.png)
 
 ---
 
